@@ -4,14 +4,14 @@ public class Wheels {
     private int radius;
     public double wheelsFriction;
 
-    public Wheels(int wheel_radius, double wheelsFriction1){
+
+    public Wheels(int wheel_radius, double wheelsFriction){
         radius = wheel_radius;
-        wheelsFriction = wheelsFriction1;
+        this.wheelsFriction = wheelsFriction;
     }
 
     public int getRadius(){
         return radius;
     }
-
     public double getWheelsFriction(){return wheelsFriction;}
 }
