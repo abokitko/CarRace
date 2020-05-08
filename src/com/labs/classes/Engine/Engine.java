@@ -1,4 +1,4 @@
-package com.labs.classes;
+package com.labs.classes.Engine;
 
 public class Engine {
     private int horse_powers;

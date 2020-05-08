@@ -1,4 +1,6 @@
-package com.labs.classes;
+package com.labs.classes.Engine;
+
+import com.labs.classes.Engine.Engine;
 
 public class ElectricEngine extends Engine {
 

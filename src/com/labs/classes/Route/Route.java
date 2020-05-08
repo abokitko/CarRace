@@ -1,4 +1,5 @@
-package com.labs.classes;
+package com.labs.classes.Route;
+
 import java.util.ArrayList;
 
 public class Route {

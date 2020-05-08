@@ -1,4 +1,6 @@
-package com.labs.classes;
+package com.labs.classes.Wheels;
+
+import com.labs.classes.Wheels.Wheels;
 
 public class SummerWheels extends Wheels {
 

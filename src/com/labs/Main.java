@@ -1,9 +1,11 @@
 package com.labs;
 
-import com.labs.classes.*;
-import java.io.IOException;
+import com.labs.classes.Engine.Engine;
+import com.labs.classes.Route.Route;
+import com.labs.classes.Transport.Car;
+import com.labs.classes.Wheels.Wheels;
+
 import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Scanner;
@@ -33,7 +35,8 @@ public class Main {
         Car car2 = new Car(700, 250, 0.27, wheels2, engine2);
         Car car3 = new Car(710, 290, 0.3, wheels3, engine3);
 */
-        Class Car = Class.forName("com.labs.classes.Car");
+
+        Class Car = Class.forName("com.labs.classes.Transport.Car");
         Class[] carConstructorParameterTypes = {int.class, int.class, double.class, Wheels.class, Engine.class};
         Constructor carConstructor = Car.getConstructor(carConstructorParameterTypes);
 
@@ -49,17 +52,17 @@ public class Main {
             int number = in.nextInt();
 
             if (number == 1) {
-                car1 = (com.labs.classes.Car) carConstructor.newInstance(650, 270, 0.2, new Wheels(17, 0.95), new Engine(200, 700));
+                car1 = (com.labs.classes.Transport.Car) carConstructor.newInstance(650, 270, 0.2,  new Wheels(17,0.47), new Engine(200, 700));
             } else if (number == 2) {
-                car2 = (com.labs.classes.Car) carConstructor.newInstance(1, 1, 0.1, new Wheels(9, 0.1), new Engine(170, 550));
+                car2 = (com.labs.classes.Transport.Car) carConstructor.newInstance(1, 1, 0.1,  new Wheels(9, 0.87), new Engine(170, 550));
             } else if (number == 3) {
-                car3 = (com.labs.classes.Car) carConstructor.newInstance(710, 290, 0.76, new Wheels(14, 0.5), new Engine(260, 720));
+                car3 = (com.labs.classes.Transport.Car) carConstructor.newInstance(710, 290, 0.76, new Wheels(14, 0.3), new Engine(260, 720));
             } else {
                 System.out.println("There is no such car");
             }
         }
 
-        Class Transport = Class.forName("com.labs.classes.Transport");
+        Class Transport = Class.forName("com.labs.classes.Transport.Transport");
         Method getSpeed = Transport.getDeclaredMethod("getSpeed", null);
         //Method getSpeed = Car.getDeclaredMethod("getSpeed", null);
         int speed1 = 0;

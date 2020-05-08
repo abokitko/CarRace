@@ -1,4 +1,4 @@
-package com.labs.classes;
+package com.labs.classes.Route;
 
 public class Point {
     private int x;

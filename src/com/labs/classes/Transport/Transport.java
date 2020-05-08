@@ -1,4 +1,7 @@
-package com.labs.classes;
+package com.labs.classes.Transport;
+
+import com.labs.classes.Engine.Engine;
+import com.labs.classes.Wheels.Wheels;
 
 public class Transport {
     private int mass;

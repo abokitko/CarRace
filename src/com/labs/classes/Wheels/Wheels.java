@@ -1,4 +1,4 @@
-package com.labs.classes;
+package com.labs.classes.Wheels;
 
 public class Wheels {
     private int radius;
