@@ -17,7 +17,6 @@ public class Road {
         this.speed2 = speed2;
         this.route = route;
     }
-
     /**
      *
      * @param amount - speed based on the road coefficient (symbols/tick)
