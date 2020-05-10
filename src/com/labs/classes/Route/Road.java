@@ -1,4 +1,4 @@
-package com.labs.classes;
+package com.labs.classes.Route;
 
 import java.io.IOException;
 
@@ -17,10 +17,17 @@ public class Road {
         this.speed2 = speed2;
         this.route = route;
     }
-
+    /**
+     *
+     * @param amount - speed based on the road coefficient (symbols/tick)
+     * @param symbol - symbol of road material
+     * @return pointsString -the length of the path distance
+     */
     public String points(int amount, String symbol) {
         String pointsString = "";
-        for (int i = 0; i < amount; i++) pointsString += symbol;
+        for (int i = 0; i < amount; i++) {
+            pointsString += symbol;
+        }
         return pointsString;
     }
 
@@ -32,6 +39,9 @@ public class Road {
         }
     }
 
+    /**
+     * shows the race progress to the console
+     */
     public void show() {
 
         String outString1 = "";
@@ -41,6 +51,7 @@ public class Road {
 
         int currentRoad1 = 0;
         int currentRoad2 = 0;
+
 
         while (currentTick != roadLength && currentRoad1 < 3 && currentRoad2 < 3) { // Здесь будет условие с количеством тактов roadLength
             promptEnterKey();
@@ -90,6 +101,10 @@ public class Road {
         }
     }
 
+
+    /**
+     * compares the winner's endpoint with the length of the route
+     */
     public void warning() {
         if (counter1 < roadLength && counter2 < roadLength) {
             System.out.println("Warning! The race was interrupted. The length of the route and its parts do not match");

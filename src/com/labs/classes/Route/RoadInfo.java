@@ -1,6 +1,4 @@
-package com.labs.classes;
-
-import java.util.ArrayList;
+package com.labs.classes.Route;
 
 public class RoadInfo {
     public int length;

@@ -1,4 +1,7 @@
-package com.labs.classes;
+package com.labs.classes.Transport;
+
+import com.labs.classes.Engine.Engine;
+import com.labs.classes.Wheels.Wheels;
 
 public class Transport {
     private int mass;
@@ -16,10 +19,18 @@ public class Transport {
     }
 
 
+    /**
+     * calculating speed with the formula and rounding it
+     * @return speed
+     */
     public  int getSpeed(){
         return (int)Math.round(engine.getHP()*engine.getWM()/(wheels.getRadius()*mass*wheels.getWheelsFriction())*friction);
     }
 
+    /**
+     * @param coef - road coefficient
+     * @return speed on current route part
+     */
     public double getSpeedWithCoef(double coef){
         return getSpeed()*coef;
     }
