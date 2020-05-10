@@ -40,18 +40,8 @@ public class Main {
         try {
             car1 = carFactory.createCar();
             car2 = carFactory.createCar();
-        } catch (ClassNotFoundException e) {
+        } catch(ClassNotFoundException | InstantiationException | InvocationTargetException | NoSuchMethodException |IllegalAccessException | NoSuchCar e){
             e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (NoSuchCar noSuchCar) {
-            noSuchCar.printStackTrace();
         }
 
         road = new Road(car1.getSpeed(), car2.getSpeed(), route);
