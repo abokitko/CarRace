@@ -19,12 +19,13 @@ public class Transport {
     }
 
 
+
     /**
      * calculating speed with the formula and rounding it
      * @return speed
      */
     public  int getSpeed(){
-        return (int)Math.round(engine.getHP()*engine.getWM()/(wheels.getRadius()*mass*wheels.getWheelsFriction())*friction);
+        return  (int)Math.round(engine.getHP()*engine.getWM()/(wheels.getRadius()*mass*wheels.getWheelsFriction())*friction);
     }
 
     /**

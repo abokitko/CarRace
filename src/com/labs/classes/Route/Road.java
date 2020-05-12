@@ -1,5 +1,7 @@
 package com.labs.classes.Route;
 
+import com.labs.classes.Transport.CarFactory;
+
 import java.io.IOException;
 
 public class Road {
@@ -9,6 +11,7 @@ public class Road {
     private int speed2;
     private int roadLength = 35;
     private Route route;
+    private CarFactory carFactory;
     public int counter1 = 0;
     public int counter2 = 0;
 
@@ -17,6 +20,8 @@ public class Road {
         this.speed2 = speed2;
         this.route = route;
     }
+
+
     /**
      *
      * @param amount - speed based on the road coefficient (symbols/tick)
@@ -108,7 +113,7 @@ public class Road {
     public void warning() {
         if (counter1 < roadLength && counter2 < roadLength) {
             System.out.println("Warning! The race was interrupted. The length of the route and its parts do not match");
-            System.exit(0);
+            System.exit(1);
         }
     }
 
