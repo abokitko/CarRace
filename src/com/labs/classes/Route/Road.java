@@ -52,22 +52,19 @@ public class Road {
         String outString1 = "";
         String outString2 = "";
 
-        int currentTick = 0;
-
         int currentRoad1 = 0;
         int currentRoad2 = 0;
 
-
-        while (currentTick != roadLength && currentRoad1 < 3 && currentRoad2 < 3) { // Здесь будет условие с количеством тактов roadLength
+        while (currentRoad1 < 3 && currentRoad2 < 3) { // Здесь будет условие с количеством тактов roadLength
             promptEnterKey();
 
-            int amount1 = speed1 * route.getRoad(currentRoad1).coef;
+            int amount1 = (int) (speed1 * route.getRoad(currentRoad1).coef);
 
             if (amount1 > (route.getRoad(currentRoad1).length - coord1)) {
                 amount1 = route.getRoad(currentRoad1).length - coord1;
             }
 
-            int amount2 = speed2 * route.getRoad(currentRoad2).coef;
+            int amount2 = (int) (speed2 * route.getRoad(currentRoad2).coef);
 
             if (amount2 > (route.getRoad(currentRoad2).length - coord2)) {
                 amount2 = route.getRoad(currentRoad2).length - coord2;
@@ -100,12 +97,11 @@ public class Road {
                 currentRoad2 = currentRoad2;
             }
 
-            System.out.println("speed1: " + amount1 + ", " + "speed2: " + amount2 + " (points/tick)");
-            System.out.println("location1: " + counter1 + ", location2:  " + counter2);
+            System.out.println("car1 speed: " + amount1 + ", " + "car2 speed: " + amount2 + " (points/tick)");
+            System.out.println("car 1 location: " + counter1 + ", car2 location:  " + counter2);
             System.out.println();
         }
     }
-
 
     /**
      * compares the winner's endpoint with the length of the route
@@ -124,4 +120,5 @@ public class Road {
     public int getCounter2() {
         return counter2;
     }
+
 }

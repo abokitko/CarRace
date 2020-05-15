@@ -1,14 +1,11 @@
 package com.labs.classes.Transport;
 
-import com.labs.NoSuchCar;
+import com.labs.classes.NoSuchCar;
 import com.labs.classes.Engine.Engine;
-import com.labs.classes.Route.Road;
-import com.labs.classes.Route.Route;
 import com.labs.classes.Wheels.Wheels;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.Scanner;
 
 
@@ -36,7 +33,7 @@ public class CarFactory {
             car = (com.labs.classes.Transport.Car) carConstructor.newInstance(650, 270, 0.2, new Wheels(17, 0.47), new Engine(200, 700));
             System.out.println("Created car 1");
         } else if (number == 2) {
-            car = (com.labs.classes.Transport.Car) carConstructor.newInstance(1, 1, 0.1, new Wheels(9, 0.87), new Engine(170, 550));
+            car = (com.labs.classes.Transport.Car) carConstructor.newInstance(630, 240, 0.34, new Wheels(16, 0.87), new Engine(170, 550));
             System.out.println("Created car 2");
         } else if (number == 3) {
             car = (com.labs.classes.Transport.Car) carConstructor.newInstance(710, 290, 0.76, new Wheels(14, 0.3), new Engine(260, 720));

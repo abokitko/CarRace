@@ -2,15 +2,20 @@ package com.labs.classes.Route;
 
 import java.util.ArrayList;
 
+import static java.lang.Integer.parseInt;
+import static java.lang.Integer.valueOf;
+
 public class Route {
 
     public ArrayList<RoadInfo> list;
     Road road;
+    private int[] roadLengths;
 
     /**
      * creating a list for route parts
      */
-    public Route(){
+    public Route(int[] roadLengths){
+        this.roadLengths = roadLengths;
         list = new ArrayList<RoadInfo>();
     }
 
@@ -19,9 +24,9 @@ public class Route {
      */
     //car move straight => y = 0
     public void addMaterial(){
-        list.add(new RoadInfo("asphalt", 0, 0, 20, 4, "."));
-        list.add(new RoadInfo("gravel", 20, 0, 12, 12, "#"));
-        list.add(new RoadInfo("sand", 32, 0, 3, 1, "~"));
+        list.add(new RoadInfo("asphalt", 0, 0, this.roadLengths[0], 1, "."));
+        list.add(new RoadInfo("gravel", 20, 0, this.roadLengths[1], 0.9, "#"));
+        list.add(new RoadInfo("sand", 32, 0, this.roadLengths[2], 0.85, "~"));
     }
 
     /**
