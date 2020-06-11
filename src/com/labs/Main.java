@@ -1,15 +1,12 @@
 package com.labs;
 
-import com.labs.classes.Engine.*;
+import com.labs.classes.NoSuchCar;
 import com.labs.classes.Route.*;
 import com.labs.classes.Transport.*;
-import com.labs.classes.Wheels.*;
+import com.labs.classes.exception.UnableToReadException;
+import com.labs.classes.reader.StreamTextFileReader;
 
-import java.io.IOException;
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.Scanner;
 
 public class Main {
     private static Road road;
@@ -17,9 +14,9 @@ public class Main {
 
     /**
      * compares the end positions of the cars
-     * @param road
+     * @param
      */
-    public static void getWinner(Road road) {
+    public static void getWinner() {
         if (road.getCounter1() > road.getCounter2()) {
             System.out.println("Winner: car1");
         } else if (road.getCounter2() > road.getCounter1()) {
@@ -29,13 +26,18 @@ public class Main {
         }
     }
 
+    public static int[] getRoutePoints(String buf) {
+        String[] temp;
+        temp = buf.split(",");
+        int[] routePointsArray = new int[temp.length];
+        for(int i = 0; i < temp.length; i++){
+            routePointsArray[i] = Integer.parseInt(temp[i]);
+        }
+        return routePointsArray;
+    }
 
-
-    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException {
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, UnableToReadException {
         CarFactory carFactory = new CarFactory();
-
-        Route route = new Route();
-        route.addMaterial();
 
         try {
             car1 = carFactory.createCar();
@@ -43,12 +45,17 @@ public class Main {
         } catch(ClassNotFoundException | InstantiationException | InvocationTargetException | NoSuchMethodException |IllegalAccessException | NoSuchCar e){
             e.printStackTrace();
         }
+        String path = "src/com/labs/data.txt";
+
+
+        Route route = new Route(getRoutePoints(new StreamTextFileReader(path).read()));
+        route.addMaterial();
 
         road = new Road(car1.getSpeed(), car2.getSpeed(), route);
         road.show();
         road.warning();
 
-        getWinner(road);
+        getWinner();
     }
 }
 
