@@ -2,6 +2,7 @@ package com.labs;
 
 import com.labs.classes.NoSuchCar;
 import com.labs.classes.Route.*;
+import com.labs.classes.SQL;
 import com.labs.classes.Transport.*;
 import com.labs.classes.exception.UnableToReadException;
 import com.labs.classes.reader.StreamTextFileReader;
@@ -10,7 +11,7 @@ import java.lang.reflect.InvocationTargetException;
 
 public class Main {
     private static Road road;
-    private static Car car1, car2;
+    private static Transport car1, car2;
 
     /**
      * compares the end positions of the cars
@@ -40,11 +41,15 @@ public class Main {
         CarFactory carFactory = new CarFactory();
 
         try {
-            car1 = carFactory.createCar();
-            car2 = carFactory.createCar();
+            car1 = carFactory.createTransport();
+            car2 = carFactory.createTransport();
         } catch(ClassNotFoundException | InstantiationException | InvocationTargetException | NoSuchMethodException |IllegalAccessException | NoSuchCar e){
             e.printStackTrace();
         }
+
+        SQL.insertCar((Transport) car1);
+        SQL.insertCar((Transport)car2);
+
         String path = "src/com/labs/data.txt";
 
 
